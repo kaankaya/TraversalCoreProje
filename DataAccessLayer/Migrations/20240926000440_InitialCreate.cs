@@ -5,7 +5,7 @@
 namespace DataAccessLayer.Migrations
 {
     /// <inheritdoc />
-    public partial class mig1 : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -66,10 +66,10 @@ namespace DataAccessLayer.Migrations
                 name: "Destinations",
                 columns: table => new
                 {
-                    DestinationID = table.Column<int>(type: "int", nullable: false)
+                    DestinationId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     City = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DayNight = table.Column<int>(type: "int", nullable: false),
+                    DayNight = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<double>(type: "float", nullable: false),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -78,7 +78,7 @@ namespace DataAccessLayer.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Destinations", x => x.DestinationID);
+                    table.PrimaryKey("PK_Destinations", x => x.DestinationId);
                 });
 
             migrationBuilder.CreateTable(

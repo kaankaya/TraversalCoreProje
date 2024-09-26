@@ -12,7 +12,7 @@ namespace DataAccessLayer.Concrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=PRIZRAK\\SQLEXPRESS;Database=TraversalDB;Integrated Security=True;TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer("Server=PRIZRAK\\SQLEXPRESS;Database=TraverDB;Integrated Security=True;TrustServerCertificate=True;");
         }
         //entityleri sql yansıtmak için köprü
         public DbSet<About> Abouts { get; set; }

@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20240924121618_mig1")]
-    partial class mig1
+    [Migration("20240926000440_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -113,11 +113,11 @@ namespace DataAccessLayer.Migrations
 
             modelBuilder.Entity("EntityLayer.Concrete.Destination", b =>
                 {
-                    b.Property<int>("DestinationID")
+                    b.Property<int>("DestinationId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DestinationID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DestinationId"));
 
                     b.Property<int>("Capacity")
                         .HasColumnType("int");
@@ -125,8 +125,8 @@ namespace DataAccessLayer.Migrations
                     b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("DayNight")
-                        .HasColumnType("int");
+                    b.Property<string>("DayNight")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -140,7 +140,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
-                    b.HasKey("DestinationID");
+                    b.HasKey("DestinationId");
 
                     b.ToTable("Destinations");
                 });

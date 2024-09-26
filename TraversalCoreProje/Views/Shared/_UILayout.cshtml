@@ -1,0 +1,24 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+
+@await Html.PartialAsync("/Views/LayoutPartial/_HeaderPartial.cshtml")
+<body>
+    <!--header-->
+    @await Html.PartialAsync("/Views/LayoutPartial/_NavbarPartial.cshtml")
+    <!-- //header -->
+   
+    @RenderBody()
+
+    <!--/w3l-footer-29-main-->
+    @await Html.PartialAsync("/Views/LayoutPartial/_FooterPartial.cshtml")
+    <!-- Template JavaScript -->
+    @await Html.PartialAsync("/Views/LayoutPartial/_ScriptsPartial.cshtml")
+</body>
+
+</html>
+

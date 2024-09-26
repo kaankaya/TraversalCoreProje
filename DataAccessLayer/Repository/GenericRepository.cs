@@ -3,6 +3,7 @@ using DataAccessLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,10 +18,17 @@ namespace DataAccessLayer.Repository
             c.SaveChanges();
         }
 
-        public List<T> GetList()
+        public List<T> GetList(Expression<Func<T, bool>> filter = null)
         {
             using var c = new Context();
-            return c.Set<T>().ToList(); 
+            if (filter == null)
+            {
+                return c.Set<T>().ToList();
+            }
+            else
+            {
+                return c.Set<T>().Where(filter).ToList();
+            }
         }
 
         public void Insert(T t)
